@@ -1,0 +1,51 @@
+.popular
+    width: 100%
+    margin-bottom: 70px
+    .popular-header
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .popular-header--title
+            font-size: 28px
+            font-weight: bold
+            color: var(--white-text)
+        .popular-header--viewall
+            background: none
+            outline: none
+            border: none
+            color: var(--gray-text)
+            font-size: 18px
+            font-weight: bold
+            display: flex
+            align-items: center
+            transition: .4s all ease
+            svg
+                margin-left: 10px
+        .popular-header--viewall:hover
+            color: var(--green-text)
+    .popular-body
+        width: 100%
+        margin: 30px 0
+    .popular-footer
+        display: flex
+        .pre, .next
+            margin-right: 20px
+            font-size: 16px
+            color: var(--blue-text)
+            font-weight: bold
+            cursor: pointer
+        .pre:hover, .next:hover
+            color: var(--green-text)
+
+        .pagination
+            .page-number
+                margin-right: 20px
+                font-size: 16px
+                color: var(--blue-text)
+                font-weight: bold
+                cursor: pointer
+            .page-number:hover
+                color: var(--green-text)
+            .current-page
+                color: var(--green-text)

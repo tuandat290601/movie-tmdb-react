@@ -1,0 +1,70 @@
+.movie-card
+    width: 100%
+    min-height: 100px
+    position: relative
+    cursor: pointer
+    overflow: hidden
+    .movie-card-thumb
+        width: 100%
+        img
+            width: 100%
+            border-radius: 5px
+    .movie-card-blur
+        position: absolute
+        width: 100%
+        height: 100%
+        bottom: 0
+        left: 0
+        background: linear-gradient(180deg, var(--black-text), #000)
+        opacity: .8
+        transform: translateY(80%)
+        transition: .4s all ease
+    .movie-card-title
+        position: absolute
+        width: 100%
+        height: 20%
+        bottom: 0
+        left: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        color: var(--white-text)
+        font-size: 16px
+        font-weight: bold
+        cursor: pointer
+    .movie-card-button
+        display: none
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        justify-content: center
+        align-items: center
+        transition: .6s all ease
+        button
+            outline: none
+            border: none
+            width: 40px
+            height: 40px
+            background: var(--white-text)
+            border-radius: 50%
+            transition: .4s all ease
+            svg
+                font-size: 20px
+                color: var(--red-text)
+        button:hover
+            background: var(--red-text)
+            svg
+                color: var(--white-text)
+            
+    
+.movie-card:hover
+    .movie-card-blur
+        transform: translateY(0)
+    .movie-card-title
+        color: var(--green-text)
+    .movie-card-button
+        display: flex
+

@@ -1,0 +1,129 @@
+.header
+    width: 100%
+    height: 105px
+    background: unset
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 999
+    .header-container
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        margin: auto
+        .container
+            width: 90%
+            max-width: unset
+        .header-nav
+            width: 100%
+            height: 100%
+            .header-navlist
+                width: 100%
+                height: 100%
+                padding: 0
+                margin: 0
+                list-style: none
+                display: flex
+                align-items: center
+                .header-navitem
+                    margin-right: 20px
+                    display: flex
+                    align-items: center
+                    padding: 10px
+                    cursor: pointer
+                    position: relative
+                    transition: .3s all ease
+
+                    svg
+                        color: var(--gray-text)
+                        font-size: 12px
+                    a
+                        margin-right: 5px
+                        color: var(--gray-text)
+                        text-transform: uppercase
+                        font-weight: 700
+                    .header-sublist
+                        display: none
+                        position: absolute
+                        top: 110%
+                        left: -20px
+                        list-style: none
+                        width: 200px
+                        padding: 10px 0 20px 0
+                        background: var(--black-text)
+                        border-top: 3px solid var(--green-text)
+                        transition: .3s all ease
+
+                        .header-subitem
+                            padding: 10px 20px 10px 35px
+                            font-weight: 700
+                            color: var(--gray-text)
+                            cursor: pointer
+                            transition: .3s all ease
+                        .header-subitem:hover
+                            color: var(--green-text)
+                .header-navitem:hover
+                    .header-sublist
+                        display: block
+                        animation: fadein .7s 
+                    svg, a
+                        color: var(--green-text)
+        .header-search
+            width: 100%
+            display: flex
+            justify-content: flex-end
+            padding: 0 10px
+            input
+                width: 80%
+                height: 34px
+                color: var(--dark-blue-background)
+                background: var(--gray-text)
+                padding: 0 20px
+                border: none
+                outline: none
+                border-top-left-radius: 20px
+                border-bottom-left-radius: 20px
+            button
+                width: 20%
+                height: 34px
+                color: var(--dark-blue-background)
+                background: var(--red-text)
+                display: flex
+                align-items: center
+                justify-content: center
+                outline: none
+                border: none
+                border-top-right-radius: 20px
+                border-bottom-right-radius: 20px
+                svg
+                    font-size: 14px
+                    color: var(--white-text)
+
+        .header-account
+            display: flex
+            align-items: center
+            justify-content: flex-end
+            .header-account--info
+                color: var(--gray-text)
+                text-align: center
+                font-weight: 700
+                margin-right: 20px
+                transition: .3s ease all
+                cursor: pointer
+            .header-account--info:hover
+                color: var(--green-text)
+            .header-account--login-btn
+                color: var(--white-text)
+                text-align: center
+                background: var(--red-text)
+                font-weight: 700
+                padding: 10px 15px
+                border: none
+                border-radius: 20px
+
+@keyframes fadein
+    0%
+        opacity: 0
+    100%
+        opacity: 1
