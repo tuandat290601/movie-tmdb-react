@@ -7,7 +7,6 @@ import TopRate from './TopRate/TopRate'
 import UpComing from './UpComing/UpComing'
 
 const MainContent = () => {
-  console.log("Main render")
   return (
     <main className='main'>
       <div className="first-block">

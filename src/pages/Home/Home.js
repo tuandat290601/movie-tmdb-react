@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Banner, Header, MainContent} from "../../components"
+import {Banner, MainContent} from "../../components"
 import { useDispatch } from 'react-redux'
 import { getGenres } from '../../features/movieSlice'
 
@@ -10,7 +10,6 @@ const Home = () => {
   },[dispatch])
   return (
     <div className='home'>
-      <Header/>
       <Banner/>
       <MainContent/>
     </div>
