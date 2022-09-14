@@ -51,7 +51,13 @@ export const getCelebrities = createAsyncThunk('movie/getCelebrities', async () 
 
 export const getMovieTrailer = createAsyncThunk('movie/getMovieTrailer', async (movie_id) => {
     const res = await api_BASE.get(`/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`)
-        .then(data => data.data.results.find(({name}) => name.indexOf("Official Trailer") !== -1).key)
+        .then(data => {
+            if(data.data.results.find(({name}) => name.indexOf("Official Trailer") !== -1)){
+                return data.data.results.find(({name}) => name.indexOf("Official Trailer") !== -1).key
+            }
+            return data.data.results[0].key
+        })
+        
     return res
 })
 

@@ -10,5 +10,5 @@ export {
     MainContent,
     MovieCard,
     Footer,
-    Popup
+    Popup,
 }

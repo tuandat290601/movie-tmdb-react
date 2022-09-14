@@ -35,8 +35,8 @@ const MovieDetail = () => {
         .then(res => setCasts(res.data.cast))
     }
     getMovieDetail()
-  }, [movie_id, dispatch])
-
+  }, [movie_id])
+console.log(trailerKey)
   const flickityOptions = {
     initialIndex: 0,
     autoPlay: false,
@@ -53,6 +53,7 @@ const MovieDetail = () => {
       videoId={trailerKey}
     />
   }
+
   return (
     <div className='movie-detail'>
       <div className="movie-detail-header">
