@@ -1,0 +1,33 @@
+.popup
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    .popup-container
+        width: 100%
+        height: 100%
+        position: relative
+        .blur
+            width: 100%
+            height: 100%
+            position: absolute
+            left: 0
+            top: 0
+            background: #000000ce
+        .content
+            position: absolute
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 100%
+            height: 100%
+            z-index: 999
+            .youtube
+                width: 1000px
+                aspect-ratio: 16/9
+                iframe
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+                

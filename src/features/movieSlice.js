@@ -9,7 +9,8 @@ const initialState = {
     popular: [],
     toprate: [],
     upcoming: [],
-    trailerKey: ""
+    trailerKey: "",
+    isPopupShow: false,
 }
 
 export const getNowPlaying = createAsyncThunk('movie/getNowPlaying', async () => {
@@ -50,7 +51,7 @@ export const getCelebrities = createAsyncThunk('movie/getCelebrities', async () 
 
 export const getMovieTrailer = createAsyncThunk('movie/getMovieTrailer', async (movie_id) => {
     const res = await api_BASE.get(`/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`)
-        .then(data => data.data.results.find(x => x.name === 'Official Trailer').key)
+        .then(data => data.data.results.find(({name}) => name.indexOf("Official Trailer") !== -1).key)
     return res
 })
 
@@ -61,7 +62,9 @@ const movieSlice = createSlice({
     name: "movie",
     initialState,
     reducers: {
-
+        setIsPopupShow: (state, action) => {
+            state.isPopupShow = action.payload
+        }
     },
     extraReducers: {
         // NOW PLAYING 
@@ -155,5 +158,5 @@ const movieSlice = createSlice({
     }
 })
 
-// export const {  } = movieSlice.actions
+export const { setIsPopupShow  } = movieSlice.actions
 export default movieSlice.reducer;

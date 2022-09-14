@@ -1,15 +1,17 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { BsFillPlayFill, BsFillShareFill } from "react-icons/bs";
 import { CgDetailsMore } from "react-icons/cg";
 
 import "./BannerCard.sass"
 import { Link } from 'react-router-dom';
+import { setIsPopupShow, getMovieTrailer } from '../../../features/movieSlice';
 
 const BannerCard = (movie) => {
     const { genres } = useSelector(store => store.movie)
     const { id, genre_ids, overview, poster_path, release_date, title, vote_average } = movie
+    const dispatch = useDispatch()
     const formatedDate = new Date(release_date).toLocaleDateString()
     return (
         <div className="banner-card">
@@ -31,7 +33,10 @@ const BannerCard = (movie) => {
                                 {overview}
                             </div>
                             <div className="card-info--navigate d-flex flex-column flex-md-row">
-                                <button className="navigate watch">
+                                <button className="navigate watch" onClick={() => {
+                                    dispatch(getMovieTrailer(id))
+                                    dispatch(setIsPopupShow(true))
+                                }}>
                                     <div className="icon">
                                         <BsFillPlayFill />
                                     </div>
@@ -43,7 +48,7 @@ const BannerCard = (movie) => {
                                     </div>
                                     SHARE
                                 </button>
-                                <Link to = {`/movie/${id}`} className="more-detail">
+                                <Link to={`/movie/${id}`} className="more-detail">
                                     <CgDetailsMore />
                                     MORE DETAIL
                                 </Link>

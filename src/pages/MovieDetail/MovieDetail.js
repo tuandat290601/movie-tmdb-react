@@ -5,12 +5,18 @@ import API_KEY from '../../common/api_KEY'
 import { BsPlayCircle } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
 import Flickity from 'react-flickity-component'
+import { setIsPopupShow, getMovieTrailer } from '../../features/movieSlice';
+import { Popup } from '../../components';
+import YouTube from 'react-youtube'
 
 import "./MovieDetail.sass"
 import MovieCard from '../../components/MovieCard/MovieCard';
+import { useDispatch, useSelector } from 'react-redux';
+
 const MovieDetail = () => {
   const { movie_id } = useParams()
-
+  const dispatch = useDispatch()
+  const { isPopupShow, trailerKey } = useSelector(store => store.movie)
   const [detail, setDetail] = useState(null)
   const [review, setReview] = useState([])
   const [relate, setRelate] = useState([])
@@ -29,7 +35,7 @@ const MovieDetail = () => {
         .then(res => setCasts(res.data.cast))
     }
     getMovieDetail()
-  }, [movie_id])
+  }, [movie_id, dispatch])
 
   const flickityOptions = {
     initialIndex: 0,
@@ -40,7 +46,13 @@ const MovieDetail = () => {
     groupCells: 6,
     imagesLoaded: true,
   }
-  console.log(review)
+
+  const YoutubePopup = () => {
+    return <YouTube
+      className='youtube'
+      videoId={trailerKey}
+    />
+  }
   return (
     <div className='movie-detail'>
       <div className="movie-detail-header">
@@ -73,7 +85,10 @@ const MovieDetail = () => {
                   {detail.overview}
                 </div>
                 <div className="movie-detail-btn">
-                  <button className="watch-trailer">
+                  <button className="watch-trailer" onClick={() => {
+                    dispatch(getMovieTrailer(movie_id))
+                    dispatch(setIsPopupShow(true))
+                  }}>
                     WATCH TRAILER
                     <BsPlayCircle />
                   </button>
@@ -156,11 +171,17 @@ const MovieDetail = () => {
                 review.map((cmt) => {
                   return <div className='comment' key={cmt.id}>
                     <div className="comment-thumb">
-                      {cmt.author_details.avatar_path.indexOf("http") !== -1
-                        ?
-                        <img src={cmt.author_details.avatar_path.substring(1)} alt={cmt.author_details.username} />
-                        :
-                        <img src={`https://image.tmdb.org/t/p/original${cmt.author_details.avatar_path}`} alt={cmt.author_details.username} />
+                      {
+                        cmt.author_details.avatar_path ?
+                          <>
+                            {cmt.author_details.avatar_path.indexOf("http") !== -1
+                              ?
+                              <img src={cmt.author_details.avatar_path.substring(1)} alt={cmt.author_details.username} />
+                              :
+                              <img src={`https://image.tmdb.org/t/p/original${cmt.author_details.avatar_path}`} alt={cmt.author_details.username} />}
+                          </>
+                          :
+                          <img src="https://www.freeiconspng.com/thumbs/male-icon/male-icon-4.jpg" alt="" />
                       }
                     </div>
                     <div className="comment-content">
@@ -186,6 +207,8 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
+      {isPopupShow && trailerKey !== "" && <Popup children={<YoutubePopup />} />}
+
     </div>
   )
 }
