@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsFillPlayFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 
 import "./MovieCard.sass"
@@ -16,9 +17,9 @@ const MovieCard = (movie) => {
                 {title}
             </div>
             <div className="movie-card-button">
-                <button>
+                <Link to = {`/movie/${id}`}>
                     <BsFillPlayFill/>
-                </button>
+                </Link>
             </div>
         </div>
     )

@@ -5,10 +5,11 @@ import { BsFillPlayFill, BsFillShareFill } from "react-icons/bs";
 import { CgDetailsMore } from "react-icons/cg";
 
 import "./BannerCard.sass"
+import { Link } from 'react-router-dom';
 
 const BannerCard = (movie) => {
     const { genres } = useSelector(store => store.movie)
-    const { genre_ids, overview, poster_path, release_date, title, vote_average } = movie
+    const { id, genre_ids, overview, poster_path, release_date, title, vote_average } = movie
     const formatedDate = new Date(release_date).toLocaleDateString()
     return (
         <div className="banner-card">
@@ -42,10 +43,10 @@ const BannerCard = (movie) => {
                                     </div>
                                     SHARE
                                 </button>
-                                <button className="more-detail">
+                                <Link to = {`/movie/${id}`} className="more-detail">
                                     <CgDetailsMore />
                                     MORE DETAIL
-                                </button>
+                                </Link>
                             </div>
                             <div className="card-info--bottom">
                                 <div className="detail"><span>Rating:</span> {vote_average}/10</div>

@@ -11,9 +11,9 @@ const Header = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-2">
-              <div className="header-logo">
+              <Link to ="/" className="header-logo">
                 <img src="http://zoa.mbkip3ms9u-e92498n216kr.p.temp-site.link/wp-content/uploads/2018/02/logo.png" alt="logo.img" />
-              </div>
+              </Link>
             </div>
             <div className="col-4">
               <div className="header-nav">

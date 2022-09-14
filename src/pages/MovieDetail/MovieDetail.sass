@@ -1,0 +1,138 @@
+.movie-detail
+
+    width: 100%
+    background: var(--dark-blue-background)
+    min-height: 100vh
+    padding: 100px 0
+    p
+        margin: 0
+        padding: 0
+    .movie-detail-header
+        padding: 100px 0
+        .movie-detail-thumb
+            width: 100%
+            img
+                width: 100%
+                border-radius: 5px
+        .movie-detail-content
+            width: 100%
+            display: flex
+            flex-direction: column
+            .movie-detail-genres
+                width: 100%
+                display: flex
+                .genre
+                    color: var(--white-text)
+                    font-size: 16px
+                    padding: 4px 10px
+                    margin-right: 5px
+                    border-radius: 5px
+                    border-radius: 5px
+                .genre-orange
+                    background: var(--orange-text)
+                .genre-red
+                    background: var(--red-text)
+            .movie-detail-title
+                color: var(--white-text)
+                .main-title
+                    font-size: 72px
+                .sub-title
+                    font-size: 20px
+            .movie-detail-status
+                width: fit-content
+                background: var(--blue-text)
+                color: var(--white-text)
+                font-size: 16px
+                padding: 4px 10px
+                margin: 10px 0
+                border-radius: 5px
+            .movie-detail-desc
+                color: var(--white-text)
+                font-size: 20px
+            .movie-detail-btn
+                display: flex
+                align-items: center
+                .watch-trailer
+                    color: var(--white-text)
+                    background: var(--red-text)
+                    font-size: 16px
+                    padding: 5px 10px
+                    margin: 10px 0
+                    display: flex
+                    align-items: center
+                    transition: .4s all ease
+                    svg
+                        margin-top: -2px
+                        margin-left: 10px
+                        font-size: 20px
+                .watch-trailer:hover
+                    background: var(--white-text)
+                    color: var(--red-text)
+                    border-radius: 5px
+                .home-page
+                    display: flex
+                    align-items: center
+                    margin: 0 10px
+                    font-size: 16px
+                    svg
+                        margin-left: 10px
+            .release-date, .vote
+                color: var(--white-text)
+                font-size: 15px
+                margin-top: 10px
+    .movie-detail-body
+        width: 100%
+        position: relative
+        .movie-casts
+            width: 100%
+            .title
+                color: var(--white-text)
+            .cast-list
+                width: 100%
+                overflow: hidden
+                .cast-card
+                    width: 15%
+                    padding: 10px
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    cursor: pointer
+                    .cast-thumb
+                        width: 100%
+                        aspect-ratio: 5/3
+                        img
+                            width: 100%
+                            height: 100%
+                            border-radius: 5px
+                            object-fit: cover
+                    .cast-name
+                        font-size: 16px
+                        color: var(--gray-text)
+                .cast-card:hover
+                    .cast-name
+                        color: var(--green-text)
+        .movie-relate
+            width: 100%
+            margin-top: 100px
+            overflow: hidden
+            .title
+                color: var(--white-text)
+            .movie-card
+                width: 15%
+                padding: 10px
+                display: flex
+                flex-direction: column
+                align-items: center
+                cursor: pointer
+                .movie-card-thumb
+                    width: 100%
+                    aspect-ratio: 5/3
+                    img
+                        width: 100%
+                        height: 100%
+                        border-radius: 5px
+                        object-fit: cover
+                .movie-card-name
+                    text-align: center
+                    font-size: 16px
+                    color: var(--gray-text)

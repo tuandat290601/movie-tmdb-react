@@ -24,7 +24,6 @@ const UpComing = () => {
             dispatch(getMovieTrailer(currentDisplay.id))
         }
     }, [currentDisplay, dispatch])
-    console.log("render")
     return (
         <section className='upcoming'>
             <div className="row">
