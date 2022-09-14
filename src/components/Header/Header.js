@@ -12,7 +12,7 @@ const Header = () => {
           <div className="row align-items-center">
             <div className="col-2">
               <Link to ="/" className="header-logo">
-                <img src="https://zoa.mbkip3ms9u-e92498n216kr.p.temp-site.link/wp-content/uploads/2018/02/logo.png" alt="logo.img" />
+                <img src="http://zoa.mbkip3ms9u-e92498n216kr.p.temp-site.link/wp-content/uploads/2018/02/logo.png" alt="logo.img" />
               </Link>
             </div>
             <div className="col-4">
