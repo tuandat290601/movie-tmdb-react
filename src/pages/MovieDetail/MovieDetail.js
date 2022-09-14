@@ -44,7 +44,8 @@ console.log(trailerKey)
     prevNextButtons: false,
     contain: true,
     groupCells: 6,
-    imagesLoaded: true,
+    imagesLoaded : true,
+    lazyLoad: true
   }
 
   const YoutubePopup = () => {
