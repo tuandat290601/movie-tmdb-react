@@ -40,6 +40,7 @@ const MovieDetail = () => {
     groupCells: 6,
     imagesLoaded: true,
   }
+  console.log(review)
   return (
     <div className='movie-detail'>
       <div className="movie-detail-header">
@@ -140,6 +141,47 @@ const MovieDetail = () => {
                   return <MovieCard {...movie} key={movie.id} />
                 })}
               </Flickity>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="movie-detail-footer">
+        <div className="movie-detail-review">
+          <div className="container">
+            <div className="title">
+              <h1>Review</h1>
+            </div>
+            <div className="review-list">
+              {review.length > 0 &&
+                review.map((cmt) => {
+                  return <div className='comment' key={cmt.id}>
+                    <div className="comment-thumb">
+                      {cmt.author_details.avatar_path.indexOf("http") !== -1
+                        ?
+                        <img src={cmt.author_details.avatar_path.substring(1)} alt={cmt.author_details.username} />
+                        :
+                        <img src={`https://image.tmdb.org/t/p/original${cmt.author_details.avatar_path}`} alt={cmt.author_details.username} />
+                      }
+                    </div>
+                    <div className="comment-content">
+                      <div className="name">
+                        {cmt.author}
+                      </div>
+                      <div className="content">
+                        {cmt.content}
+                      </div>
+                      <div className="info">
+                        <div className="rating">
+                          Rating: {cmt.author_details.rating}/10
+                        </div>
+                        <div className="created-at">
+                          Post on: {new Date(cmt.updated_at).toLocaleDateString()}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                })
+              }
             </div>
           </div>
         </div>
