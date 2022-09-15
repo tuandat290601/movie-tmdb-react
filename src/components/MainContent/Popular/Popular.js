@@ -7,7 +7,7 @@ import "./Popular.sass"
 
 const Popular = () => {
   const dispatch = useDispatch()
-  const { popular } = useSelector(store => store.movie)
+  const popular = useSelector(store => store.movie.popular)
   const [display, setDisplay] = useState([])
   const [pagination, setPagination] = useState([])
   const [page, setPage] = useState(1)

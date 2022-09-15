@@ -8,8 +8,9 @@ import "./BannerCard.sass"
 import { Link } from 'react-router-dom';
 import { setIsPopupShow, getMovieTrailer } from '../../../features/movieSlice';
 
+
 const BannerCard = (movie) => {
-    const { genres } = useSelector(store => store.movie)
+    const  genres = useSelector(store => store.movie.genres)
     const { id, genre_ids, overview, poster_path, release_date, title, vote_average } = movie
     const dispatch = useDispatch()
     const formatedDate = new Date(release_date).toLocaleDateString()
@@ -48,7 +49,7 @@ const BannerCard = (movie) => {
                                     </div>
                                     SHARE
                                 </button>
-                                <Link to={`/movie/${id}`} className="more-detail">
+                                <Link to={`/movie_detail/${id}`} className="more-detail">
                                     <CgDetailsMore />
                                     MORE DETAIL
                                 </Link>

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./CelebrityCard.sass"
 const CelebrityCard = (celebrity) => {
-    const {id, name, profile_path} = celebrity
+    const {name, profile_path} = celebrity
   return (
     <div className='celebrity'>
         <div className="row">

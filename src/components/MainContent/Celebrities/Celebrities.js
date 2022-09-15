@@ -7,7 +7,7 @@ import "./Celebrities.sass"
 
 const Celebrities = () => {
   const dispatch = useDispatch()
-  const { celebrities } = useSelector(store => store.movie)
+  const  celebrities  = useSelector(store => store.movie.celebrities)
   useEffect(()=>{
     dispatch(getCelebrities())
   },[dispatch])

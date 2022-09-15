@@ -14,10 +14,10 @@ const flickityOptions = {
   wrapAround: true
 }
 const Banner = () => {
-  const { nowPlaying } = useSelector(store => store.movie)
+  const  nowPlaying  = useSelector(store => store.movie.nowPlaying)
   const dispatch = useDispatch()
   useEffect(()=>{
-    dispatch(getNowPlaying())
+    dispatch(getNowPlaying(1))
   },[dispatch])
   return (
     <section className='banner'>

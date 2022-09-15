@@ -7,7 +7,7 @@ import "./TopRate.sass"
 
 const TopRate = () => {
   const dispatch = useDispatch()
-  const { toprate } = useSelector(store => store.movie)
+  const toprate= useSelector(store => store.movie.toprate)
   const [display, setDisplay] = useState([])
   const [pagination, setPagination] = useState([])
   const [page, setPage] = useState(1)

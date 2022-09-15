@@ -12,15 +12,18 @@ import YouTube from 'react-youtube'
 import "./MovieDetail.sass"
 import MovieCard from '../../components/MovieCard/MovieCard';
 import { useDispatch, useSelector } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const MovieDetail = () => {
   const { movie_id } = useParams()
   const dispatch = useDispatch()
-  const { isPopupShow, trailerKey } = useSelector(store => store.movie)
+  const isPopupShow = useSelector(store => store.movie.isPopupShow)
+  const trailerKey = useSelector(store => store.movie.trailerKey)
   const [detail, setDetail] = useState(null)
   const [review, setReview] = useState([])
   const [relate, setRelate] = useState([])
   const [casts, setCasts] = useState([])
+  const [keyword, setKeyword] = useState([])
 
 
   useEffect(() => {
@@ -33,10 +36,12 @@ const MovieDetail = () => {
         .then(res => setRelate(res.data.results))
       api_BASE.get(`/movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`)
         .then(res => setCasts(res.data.cast))
+      api_BASE.get(`/movie/${movie_id}//keywords?api_key=${API_KEY}`)
+        .then(res => setKeyword(res.data.keywords)
+        )
     }
     getMovieDetail()
   }, [movie_id])
-console.log(trailerKey)
   const flickityOptions = {
     initialIndex: 0,
     autoPlay: false,
@@ -44,7 +49,7 @@ console.log(trailerKey)
     prevNextButtons: false,
     contain: true,
     groupCells: 6,
-    imagesLoaded : true,
+    imagesLoaded: true,
     lazyLoad: true
   }
 
@@ -108,6 +113,14 @@ console.log(trailerKey)
                 <div className="vote">
                   Voting: {detail.vote_average.toFixed()}/10
                 </div>
+                <div className="keyword">
+                  Keywords:
+                  {keyword.map(key => {
+                    return <div className='key' key={key.id}>
+                      #{key.name}
+                    </div>
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -133,7 +146,10 @@ console.log(trailerKey)
                   return (
                     <div className='cast-card' key={cast.id}>
                       <div className="cast-thumb">
-                        <img src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`} alt="" />
+                        <LazyLoadImage
+                          img src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                          alt={cast.name}
+                        />
                       </div>
                       <div className="cast-name">
                         {cast.name}

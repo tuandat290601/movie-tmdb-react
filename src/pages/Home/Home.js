@@ -6,7 +6,8 @@ import YouTube from 'react-youtube'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const { isPopupShow, trailerKey } = useSelector(store => store.movie)
+  const isPopupShow = useSelector(store => store.movie.isPopupShow)
+  const trailerKey  = useSelector(store => store.movie.trailerKey)
   
   useEffect(() => {
     dispatch(getGenres())

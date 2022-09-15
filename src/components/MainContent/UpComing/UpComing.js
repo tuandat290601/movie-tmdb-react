@@ -9,7 +9,8 @@ import "./UpComing.sass"
 
 const UpComing = () => {
     const dispatch = useDispatch()
-    const { upcoming, trailerKey } = useSelector(store => store.movie)
+    const upcoming = useSelector(store => store.movie.upcoming)
+    const trailerKey = useSelector(store => store.movie.trailerKey)
     const [displayList, setDisplayList] = useState([])
     const [currentDisplay, setCurrentDisplay] = useState()
     useEffect(() => {
