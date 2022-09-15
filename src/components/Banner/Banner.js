@@ -3,7 +3,7 @@ import BannerCard from "./BannerCard/BannerCard"
 import "./Banner.sass"
 import { useDispatch, useSelector } from 'react-redux'
 import { getNowPlaying } from '../../features/movieSlice'
-import Flickity from 'react-flickity-component'
+import Flickity from 'flickity'
 
 const flickityOptions = {
   initialIndex: 0,
