@@ -8,7 +8,6 @@ import "./BannerCard.sass"
 import { Link } from 'react-router-dom';
 import { setIsPopupShow, getMovieTrailer } from '../../../features/movieSlice';
 
-
 const BannerCard = (movie) => {
     const  genres = useSelector(store => store.movie.genres)
     const { id, genre_ids, overview, poster_path, release_date, title, vote_average } = movie
