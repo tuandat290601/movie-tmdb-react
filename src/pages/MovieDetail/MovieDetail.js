@@ -4,7 +4,7 @@ import api_BASE from '../../common/api_BASE'
 import API_KEY from '../../common/api_KEY'
 import { BsPlayCircle } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
-import Flickity from 'flickity'
+import Flickity from 'react-flickity-component'
 import { setIsPopupShow, getMovieTrailer } from '../../features/movieSlice';
 import { Popup } from '../../components';
 import YouTube from 'react-youtube'
