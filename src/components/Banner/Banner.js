@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNowPlaying } from "../../features/movieSlice";
 import Flickity from "react-flickity-component";
 
-import bannerIMG from "../../assets/img/banner.jpg";
-
 const flickityOptions = {
   initialIndex: 0,
   autoPlay: 3000,
@@ -22,7 +20,7 @@ const Banner = () => {
     dispatch(getNowPlaying(1));
   }, [dispatch]);
   return (
-    <section className="banner" style={{ backgroundImage: bannerIMG }}>
+    <section className="banner">
       <div className="banner-container">
         <Flickity
           className={"carousel"}
